@@ -11,9 +11,9 @@ cpwd is a C port of [npwd] (https://github.com/kaepora/npwd) by [Nadim Kobeissi]
 
 ### Installation
 
-`git clone https://github.com/postboy/cpwd.git
+`git clone https://github.com/postboy/cpwd.git`
 
-chmod +x build.sh && ./build.sh`
+`chmod +x build.sh && ./build.sh`
 
 Add `alias cpwd='/path/to/./cpwd'` in your `.bashrc` file for adding a command "cpwd" to your shell.
 
