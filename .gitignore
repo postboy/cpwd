@@ -1,0 +1,3 @@
+#exclude a compiled program, directory with persistent keys and temporary files
+cpwd
+*~
