@@ -12,11 +12,17 @@ cpwd is a C port of [npwd] (https://github.com/kaepora/npwd) by [Nadim Kobeissi]
 4. Doesn't store anything: no password databases to manage.
 
 ### Usage
-1. a) `cpwd account_name`, ex. `cpwd twitter`, or
-b) `cpwd`, then enter the name of your account (ex. "Twitter", "GitHub").
+1. a) Run `cpwd account_name`, ex. `cpwd twitter`, or
+b) Run `cpwd`, then enter the name of your account (ex. "twitter").
 
 2. Enter your master key (hidden, same for all accounts).
 3. In a few seconds, your password for that account is in your clipboard. Clipboard is cleared automatically after 15 seconds for security.
+
+### Notes
+1. **Weak master key ruins everything**. Your master key should have at least 8 characters, contain lowercase and uppercase letters, numbers and special symbols.
+2. cpwd is fully compatibile with latest npwd 1.0.6 and offers the same functional plus account name definition in command. cpwd allows you to get maximum speed of work while npwd is much easier to install. cpwd is written in C while npwd is written in JavaScript, thus depends on `Node.JS` and `npm`.
+3. Key derivation is done with [scrypt] (https://www.tarsnap.com/scrypt.html). Parameters: N = 2<sup>17</sup> = 131072, r = 8, p = 1, L = 16. Account name acts as salt.
+4. Account names are lowercased automatically for usability. "GitHub" == "github".
 
 ### Platforms
 Tested: Linux.
@@ -30,25 +36,19 @@ Not tested, but probably supported: OpenBSD, Windows, Mac OS X.
 4. *nix only: add `alias cpwd='/path/to/./cpwd'` in your `.bashrc` file for adding a command "cpwd" to your shell.
 5. Linux/OpenBSD only: install `xclip` or `xsel` package for working with clipboard.
 
-### Notes
-1. **Weak master key ruins everything**. Your master key should have at least 8 characters, contain lowercase and uppercase letters, numbers and special symbols.
-2. cpwd is fully compatibile with latest npwd 1.0.6 and offers *almost* the same functional. cpwd allows you to get maximum speed of work while npwd is much easier to install. cpwd is a bit handier in use. cpwd is written on C while npwd is written in JavaScript, thus depends on `Node.JS` and `npm`.
-3. Key derivation is done with [scrypt] (https://www.tarsnap.com/scrypt.html). N = 2<sup>17</sup> = 131072, r = 8, p = 1, L = 16. Account name acts as salt.
-4. Account names are lowercased automatically for usability. "GitHub" == "github".
-
-### Does it too slow for you?
+### Does cpwd works too slow?
 If you don't satisfied with cpwd speed, you can make it many times faster!
 
 1. Run `grep sse /proc/cpuinfo` to check does your processor supports SSE, and if so, compile against crypto_scrypt-sse.c instead of crypto_scrypt-ref.c.
-2. Enable optimization in your compiler. If you use GCC, you can do it with flags `-march=native` (compile just for that processor) plus `-O1` or `-O2` or`-O3` (test them all and use the best for you).
+2. Enable optimization in your compiler. If you use GCC, you can do it with flags `-march=native` (compile just for that processor) plus `-O1` or `-O2` or `-O3` (test them all and use the best for you).
 
 ### See also
-1. [npwd] (https://github.com/kaepora/npwd) — cpwd with very easy installation, but maybe not that fast :)
-2. [PwdHash] (https://www.pwdhash.com) has a similar idea but uses hashing instead of key derivation function.
+1. [npwd] (https://github.com/kaepora/npwd) — imagine cpwd with very easy installation, but maybe not that fast work :)
+2. [PwdHash] (https://www.pwdhash.com) has a similar idea but uses hashing instead of key derivation function, thus less secure.
 3. [Password manager without a password manager] (https://gist.github.com/jaseg/3334991) had a somewhat similar idea, used hashing instead of key derivation function and was broken.
 
 ### License
-cpwd itself is licensed under [GPL v3] (https://www.gnu.org/licenses/gpl-3.0.en.html) as a port of GPL v3-licensed npwd. cpwd uses parts of [scrypt] (https://www.tarsnap.com/scrypt.html) 1.1.6 licensed under [BSD 2-Clause] (http://opensource.org/licenses/bsd-license.php) and [GCC Poison] (http://blog.leafsr.com/2013/12/02/gcc-poison) which is public domain.
+cpwd itself is licensed under [GPL v3] (https://www.gnu.org/licenses/gpl-3.0.en.html). cpwd uses parts of [scrypt] (https://www.tarsnap.com/scrypt.html) 1.1.6 licensed under [BSD 2-Clause] (http://opensource.org/licenses/bsd-license.php) and [GCC Poison] (http://blog.leafsr.com/2013/12/02/gcc-poison) which is public domain.
 
 ### Author
 Zuboff Ivan // anotherdiskmag on gooooooogle mail
