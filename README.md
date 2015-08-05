@@ -22,12 +22,8 @@ Not tested, but probably supported: OpenBSD, Windows, Mac OS X.
 5. Linux/OpenBSD only: install `xclip` or `xsel` package for working with clipboard.
 
 ### Usage
-1. `cpwd`
-2. Enter the name of your account (ex. "Twitter", "GitHub").
-
-or just
-
-1. + 2. `cpwd account_name`, ex. `cpwd twitter`!
+1. a) `cpwd account_name`, ex. `cpwd twitter`, or
+b) `cpwd`, then enter the name of your account (ex. "Twitter", "GitHub").
 
 3. Enter your master key (hidden, same for all accounts).
 4. In a few seconds, your password for that account is in your clipboard. Clipboard is cleared automatically after 15 seconds for security.
