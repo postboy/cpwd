@@ -25,8 +25,8 @@ Not tested, but probably supported: OpenBSD, Windows, Mac OS X.
 1. a) `cpwd account_name`, ex. `cpwd twitter`, or
 b) `cpwd`, then enter the name of your account (ex. "Twitter", "GitHub").
 
-3. Enter your master key (hidden, same for all accounts).
-4. In a few seconds, your password for that account is in your clipboard. Clipboard is cleared automatically after 15 seconds for security.
+2. Enter your master key (hidden, same for all accounts).
+3. In a few seconds, your password for that account is in your clipboard. Clipboard is cleared automatically after 15 seconds for security.
 
 ### Notes
 1. cpwd is fully compatibile with latest npwd 1.0.6 and offers the same functional. cpwd allows you to get maximum speed of work while npwd is much easier to install. cpwd is written on C while npwd is written in JavaScript, thus depends on `Node.JS` and `npm`.
