@@ -31,8 +31,8 @@ b) `cpwd`, then enter the name of your account (ex. "Twitter", "GitHub").
 ### Notes
 1. cpwd is fully compatibile with latest npwd 1.0.6 and offers the same functional. cpwd allows you to get maximum speed of work while npwd is much easier to install. cpwd is written on C while npwd is written in JavaScript, thus depends on `Node.JS` and `npm`.
 2. Key derivation is done with [scrypt] (https://www.tarsnap.com/scrypt.html). N = 2<sup>17</sup> = 131072, r = 8, p = 1, L = 16. Account name acts as salt.
-3. Account names are lowercased automatically for usability. "GitHub" == "github".
-4. **Weak master key ruins everything**. Your master key should have at least 8 characters, contain lowercase and uppercase letters, numbers and special symbols.
+3. **Weak master key ruins everything**. Your master key should have at least 8 characters, contain lowercase and uppercase letters, numbers and special symbols.
+4. Account names are lowercased automatically for usability. "GitHub" == "github".
 
 ### Does it too slow for you?
 If you don't satisfied with cpwd speed, you can make it many times faster!
