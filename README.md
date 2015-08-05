@@ -1,7 +1,9 @@
 # cpwd 1.2
-## Command-line password manager for your various accounts, written in C.
+## Command-line password manager for your various accounts.
 
-cpwd is a C port of [npwd] (https://github.com/kaepora/npwd) by [Nadim Kobeissi] (https://nadim.computer) — simple, stateless password manager. You enter a master key and the name of an account (ex. "Twitter"), wait a few seconds, and cpwd generates a password for that account ready in your clipboard. You can reuse the same master key for all your accounts, and cpwd will generate a different password for every account. Every time you want to log in, just launch cpwd and enter the same master key and account name. Simple! Useful!
+cpwd is simple, stateless password manager. You enter a master key and the name of an account (ex. "Twitter"), wait a few seconds, and cpwd generates a password for that account ready in your clipboard. You can reuse the same master key for all your accounts, and cpwd will generate a different password for every account. Every time you want to log in, just launch cpwd and enter the same master key and account name. Simple! Useful!
+
+cpwd is a C port of [npwd] (https://github.com/kaepora/npwd) by [Nadim Kobeissi] (https://nadim.computer).
 
 ### Benefits
 1. Memorize a single master key, but still get a different password for every account.
@@ -30,7 +32,7 @@ Not tested, but probably supported: OpenBSD, Windows, Mac OS X.
 
 ### Notes
 1. **Weak master key ruins everything**. Your master key should have at least 8 characters, contain lowercase and uppercase letters, numbers and special symbols.
-2. cpwd is fully compatibile with latest npwd 1.0.6 and offers almost the same functional. cpwd allows you to get maximum speed of work while npwd is much easier to install. cpwd is written on C while npwd is written in JavaScript, thus depends on `Node.JS` and `npm`.
+2. cpwd is fully compatibile with latest npwd 1.0.6 and offers *almost* the same functional. cpwd allows you to get maximum speed of work while npwd is much easier to install. cpwd is a bit handier in use. cpwd is written on C while npwd is written in JavaScript, thus depends on `Node.JS` and `npm`.
 3. Key derivation is done with [scrypt] (https://www.tarsnap.com/scrypt.html). N = 2<sup>17</sup> = 131072, r = 8, p = 1, L = 16. Account name acts as salt.
 4. Account names are lowercased automatically for usability. "GitHub" == "github".
 
