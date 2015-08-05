@@ -44,9 +44,7 @@ If you don't satisfied with cpwd speed, you can make it many times faster!
 3. [Password manager without a password manager] (https://gist.github.com/jaseg/3334991) had a somewhat similar idea, used hashing instead of key derivation function and was broken.
 
 ### License
-cpwd itself is licensed under [GPL v3] (https://www.gnu.org/licenses/gpl-3.0.en.html) as a port of GPL v3-licensed npwd.
-
-cpwd uses parts of [scrypt] (https://www.tarsnap.com/scrypt.html) 1.1.6 licensed under [BSD 2-Clause] (http://opensource.org/licenses/bsd-license.php).
+cpwd itself is licensed under [GPL v3] (https://www.gnu.org/licenses/gpl-3.0.en.html) as a port of GPL v3-licensed npwd. cpwd uses parts of [scrypt] (https://www.tarsnap.com/scrypt.html) 1.1.6 licensed under [BSD 2-Clause] (http://opensource.org/licenses/bsd-license.php) and [GCC Poison] (http://blog.leafsr.com/2013/12/02/gcc-poison) which is public domain.
 
 ### Contributors
 Developer: Zuboff Ivan // anotherdiskmag on gooooooogle mail
