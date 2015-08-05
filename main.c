@@ -21,12 +21,15 @@ extern int main (int argc, char **argv)
 	
 	char command_begin[6] = "echo \0";
 	
-	//PLATFORM-SPECIFIC CODE BEGIN
+	//--PLATFORM-SPECIFIC CODE BEGIN---------------------------------------------------------------
+	//comment all code in this section that is unuseful for your system (that's easy)
 	
-	//Linux with xclip package installed
-	char command_end[28] = "|xclip -selection clipboard\0";
+	char command_end[28] = "|xclip -selection clipboard\0";	//Linux/OpenBSD with xclip package installed
+	//char command_end[26] = "|xsel --clipboard --input\0";	//Linux/OpenBSD with xsel package installed
+	//char command_end[6] = "|clip\0";						//Windows
+	//char command_end[8] = "|pbcopy\0";					//Mac OS X
 	
-	//PLATFORM-SPECIFIC CODE END
+	//--PLATFORM-SPECIFIC CODE END-----------------------------------------------------------------
 	
 	
 	//getting account name and lowercasing it for usability
