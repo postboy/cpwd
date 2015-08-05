@@ -38,5 +38,5 @@ cpwd uses parts of [scrypt] (https://www.tarsnap.com/scrypt.html) 1.1.6 licensed
 
 Commands for working with clipboard are taken from [node-copy-paste] (https://github.com/xavi-/node-copy-paste) 1.1.3.
 
-## Contributors
+### Contributors
 Developer: Zuboff Ivan // anotherdiskmag on gooooooogle mail
