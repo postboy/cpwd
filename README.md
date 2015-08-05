@@ -23,6 +23,7 @@ Not tested, but probably supported: OpenBSD, Windows, Mac OS X.
 
 ### Usage
 1. a) `cpwd account_name`, ex. `cpwd twitter`, or
+
 b) `cpwd`, then enter the name of your account (ex. "Twitter", "GitHub").
 
 2. Enter your master key (hidden, same for all accounts).
