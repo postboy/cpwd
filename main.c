@@ -1,16 +1,17 @@
 //cpwd - command-line password manager for your various accounts
-//a port of npwd utility by Nadim Kobeissi (https://github.com/kaepora/npwd) to C
+//this is a port of npwd utility by Nadim Kobeissi (https://github.com/kaepora/npwd) to C
 
 //Author: Zuboff Ivan, licence: GPL v3
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <string.h>
 #include <ctype.h>
+//#include <string.h> - someone may need this header for re-using cpwd code somewhere else
 
 #include "scrypt/readpass.h"
 #include "scrypt/crypto_scrypt.h"
+#include "poison.h"
 
 extern int main (int argc, char **argv)
 {
@@ -38,7 +39,10 @@ extern int main (int argc, char **argv)
 		printf("fflush() error\n");
 		return 1;
 		}
-	fgets((char *)account, 1016, stdin);
+	if (fgets((char *)account, 1016, stdin) == NULL) {
+		printf("fgets() error\n");
+		return 1;
+		};
 	for (i = 0; account[i]; i++)
  		account[i] = tolower(account[i]);
  		
@@ -68,7 +72,10 @@ extern int main (int argc, char **argv)
 		strncat(command, password_letters, 3);
 		}
 	strncat(command, command_end, strlen(command_end));
-	system(command);
+	if (system(command)) {
+	    printf("system(fill_clipboard) error\n");
+		return 1;
+    	};
 	
 	//notify user and pause for 15 seconds
 	printf("\nPaste it!\n");
@@ -79,7 +86,10 @@ extern int main (int argc, char **argv)
 	bzero(command, 1);	//clear first byte of "command" for owerwriting it
 	strncat(command, command_begin, strlen(command_begin));
 	strncat(command, command_end, strlen(command_end));
-	system(command);
+	if (system(command)) {
+	    printf("system(clear_clipboard) error\n");
+		return 1;
+    	};
 	
 	return 0;
 }
