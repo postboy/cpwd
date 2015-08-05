@@ -15,13 +15,7 @@
 
 extern int main (int argc, char **argv)
 {
-	char* key;
-	unsigned char hash[16];
-	char account[1016], salt[1024] = {0}, n[4] = "npwd", command[100] = {0}, password_letters[3];
-	int i;
-	
-	char command_begin[6] = "echo \0";
-	
+
 	//--PLATFORM-SPECIFIC CODE BEGIN---------------------------------------------------------------
 	//comment all code in this section that is unuseful for your system (that's easy)
 	
@@ -32,32 +26,61 @@ extern int main (int argc, char **argv)
 	
 	//--PLATFORM-SPECIFIC CODE END-----------------------------------------------------------------
 	
+	char command_begin[6] = "echo \0", account[1016], salt[1024] = {0}, n[4] = "npwd",
+			command[100] = {0}, password_letters[3];
+	char* key;
+	unsigned char hash[16];
+	int i;
 	
-	//getting account name and lowercasing it for usability
-	printf("account: ");
-	if (fflush(stdin)) {
-		printf("fflush() error\n");
-		return 1;
-		}
-	if (fgets((char *)account, 1016, stdin) == NULL) {
-		printf("fgets() error\n");
-		return 1;
-		};
-	for (i = 0; account[i]; i++)
- 		account[i] = tolower(account[i]);
+	//if account name was defined as a command line arguement then get it from here
+	if (argc > 1) {
+	
+		//copy at most 1016 bytes of argv[1] (to avoid buffer owerflow) to account
+		//maximum length of arguments is too big: http://www.in-ulm.de/~mascheck/various/argmax
+		memcpy(account, argv[1], strlen(argv[1]) < 1016 ? strlen(argv[1]) : 1016);
+		
+		//lowercase account name for usability
+		for (i = 0; account[i]; i++)
+ 			account[i] = tolower(account[i]);
  		
- 	//getting master key
+ 		//salt: "npwd"+lowercased account+"npwd"
+		strncat(salt, n, 4);
+		strncat(salt, account, strlen(account));
+		strncat(salt, n, 4);
+		
+		}
+
+	//else ask user to enter it it
+	else {
+	
+		printf("account: ");
+		if (fflush(stdin)) {
+			printf("fflush() error\n");
+			return 1;
+			}
+		if (fgets((char *)account, 1016, stdin) == NULL) {
+			printf("fgets() error\n");
+			return 1;
+			};
+		
+		//lowercase account name for usability
+		for (i = 0; account[i]; i++)
+ 			account[i] = tolower(account[i]);
+ 		
+ 		//salt: "npwd"+lowercased account without newline+"npwd"
+		strncat(salt, n, 4);
+		strncat(salt, account, strlen(account)-1);
+		strncat(salt, n, 4);
+	
+		}
+
+ 	//get master key
  	if (tarsnap_readpass(&key, "key", NULL, 1)) {
 		printf("tarsnap_readpass() error\n");
 		return 1;
 		}
 
-	//salt: "npwd"+lowercased account without newline+"npwd"
-	strncat(salt, n, 4);
-	strncat(salt, account, strlen(account)-1);
-	strncat(salt, n, 4);
-
-	//hashing it
+	//launch key derivation function to get hash of master key and account name
 	if (crypto_scrypt((uint8_t *)key, (size_t)strlen(key), (uint8_t *)salt, (size_t)strlen(salt), 131072, 8, 1, hash, 16)) {
     	printf("crypto_scrypt() error\n");
 		return 1;

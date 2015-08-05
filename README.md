@@ -1,4 +1,4 @@
-# cpwd 1.1
+# cpwd 1.2
 ## Command-line password manager for your various accounts, written in C.
 
 cpwd is a C port of [npwd] (https://github.com/kaepora/npwd) by [Nadim Kobeissi] (https://nadim.computer) — simple, stateless password manager. You enter a master key and the name of an account (ex. "Twitter"), wait a few seconds, and cpwd generates a password for that account ready in your clipboard. You can reuse the same master key for all your accounts, and cpwd will generate a different password for every account. Every time you want to log in, just launch cpwd and enter the same master key and account name. Simple! Useful!
@@ -24,6 +24,11 @@ Not tested, but probably supported: OpenBSD, Windows, Mac OS X.
 ### Usage
 1. `cpwd`
 2. Enter the name of your account (ex. "Twitter", "GitHub").
+
+or just
+
+1. + 2. `cpwd account_name`, ex. `cpwd twitter`!
+
 3. Enter your master key (hidden, same for all accounts).
 4. In a few seconds, your password for that account is in your clipboard. Clipboard is cleared automatically after 15 seconds for security.
 
