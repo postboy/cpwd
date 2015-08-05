@@ -34,7 +34,9 @@ Not tested, but probably supported: OpenBSD, Windows, Mac OS X.
 
 ### Does it too slow for you?
 If you don't satisfied with cpwd speed, you can make it many times faster!
+
 1. Run `grep sse /proc/cpuinfo` to check does your processor supports SSE, and if so, compile against crypto_scrypt-sse.c instead of crypto_scrypt-ref.c.
+
 2. Enable optimization in your compiler. If you use GCC, you can do it with flags `-march=native` (compile just for that processor) and `-O1`\`-O2`\`-O3` (test them all and use the best for you).
 
 ### See also
@@ -42,12 +44,10 @@ If you don't satisfied with cpwd speed, you can make it many times faster!
 2. [PwdHash] (https://www.pwdhash.com) has a similar idea but uses hashing instead of key derivation function.
 3. [Password manager without a password manager] (https://gist.github.com/jaseg/3334991) had a somewhat similar idea, used hashing instead of key derivation function and was broken.
 
-### Legal
+### License
 cpwd itself is licensed under [GPL v3] (https://www.gnu.org/licenses/gpl-3.0.en.html) as a port of GPL v3-licensed npwd.
 
-cpwd uses parts of [scrypt] (https://www.tarsnap.com/scrypt.html) 1.1.6 licensed under [BSD 2-Clause] (http://opensource.org/licenses/bsd-license.php). 
-
-Commands for working with clipboard are taken from [node-copy-paste] (https://github.com/xavi-/node-copy-paste) 1.1.3.
+cpwd uses parts of [scrypt] (https://www.tarsnap.com/scrypt.html) 1.1.6 licensed under [BSD 2-Clause] (http://opensource.org/licenses/bsd-license.php).
 
 ### Contributors
 Developer: Zuboff Ivan // anotherdiskmag on gooooooogle mail
