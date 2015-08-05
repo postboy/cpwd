@@ -11,7 +11,6 @@
 
 #include "scrypt/readpass.h"
 #include "scrypt/crypto_scrypt.h"
-#include "xclip/xclib.h"
 
 extern int main (int argc, char **argv)
 {

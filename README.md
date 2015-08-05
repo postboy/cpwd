@@ -31,7 +31,8 @@ Linux only for now, more to follow.
 3. Account names are lowercased automatically for usability. "GitHub" == "github".
 
 ### Licenses
-cpwd itself is licensed under [GPL v3] (https://www.gnu.org/licenses/gpl-3.0.en.html) as a port of GPL v3-licensed npwd. cpwd uses parts of [scrypt] (https://www.tarsnap.com/scrypt.html) 1.1.6 licensed under [BSD 2-Clause] (http://opensource.org/licenses/bsd-license.php).
+cpwd itself is licensed under [GPL v3] (https://www.gnu.org/licenses/gpl-3.0.en.html) as a port of GPL v3-licensed npwd.
+cpwd uses parts of [scrypt] (https://www.tarsnap.com/scrypt.html) 1.1.6 licensed under [BSD 2-Clause] (http://opensource.org/licenses/bsd-license.php).
 
 ## Contributors
 Developer: Zuboff Ivan // anotherdiskmag on gooooooogle mail
