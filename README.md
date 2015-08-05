@@ -36,7 +36,6 @@ Not tested, but probably supported: OpenBSD, Windows, Mac OS X.
 If you don't satisfied with cpwd speed, you can make it many times faster!
 
 1. Run `grep sse /proc/cpuinfo` to check does your processor supports SSE, and if so, compile against crypto_scrypt-sse.c instead of crypto_scrypt-ref.c.
-
 2. Enable optimization in your compiler. If you use GCC, you can do it with flags `-march=native` (compile just for that processor) and `-O1`\`-O2`\`-O3` (test them all and use the best for you).
 
 ### See also
