@@ -32,7 +32,7 @@ Not tested, but probably supported: OpenBSD, Windows, Mac OS X.
 ### Installation
 1. `git clone https://github.com/postboy/cpwd.git` to download repository.
 2. Comment all code in platform-specific section that is unuseful for your system (that's easy).
-3. Build cpwd. On *nix systems with GCC you can do it via `chmod +x build.sh && ./build.sh`.
+3. Build cpwd. On *nix systems with GCC you can do it via `./build.sh`.
 4. *nix only: add `alias cpwd='/path/to/./cpwd'` in your `.bashrc` file for adding a command "cpwd" to your shell.
 5. Linux/OpenBSD only: install `xclip` or `xsel` package for working with clipboard.
 

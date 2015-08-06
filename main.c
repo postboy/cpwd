@@ -1,13 +1,13 @@
-//cpwd - command-line password manager for your various accounts
+//cpwd 1.2 - command-line password manager for your various accounts
 //this is a port of npwd utility by Nadim Kobeissi (https://github.com/kaepora/npwd) to C
 
-//Author: Zuboff Ivan, licence: GPL v3
+//licence: GPL v3, author: Zuboff Ivan (anotherdiskmag on gooooooogle mail)
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <ctype.h>
-//#include <string.h> - someone may need this header for re-using cpwd code somewhere else
+#include <string.h>
 
 #include "scrypt/readpass.h"
 #include "scrypt/crypto_scrypt.h"
@@ -26,8 +26,8 @@ extern int main (int argc, char **argv)
 	
 	//--PLATFORM-SPECIFIC CODE END-----------------------------------------------------------------
 	
-	char command_begin[6] = "echo \0", account[1016], salt[1024] = {0}, n[4] = "npwd",
-			command[100] = {0}, password_letters[3];
+	char command_begin[6] = "echo \0", command[100] = {0}, account[1016], salt[1024] = {0},
+			n[4] = "npwd", password_letters[3];
 	char* key;
 	unsigned char hash[16];
 	int i;
@@ -39,7 +39,7 @@ extern int main (int argc, char **argv)
 		//maximum length of arguments is too big: http://www.in-ulm.de/~mascheck/various/argmax
 		memcpy(account, argv[1], strlen(argv[1]) < 1016 ? strlen(argv[1]) : 1016);
 		
-		//lowercase account name for usability
+		//lowercasing account name for usability
 		for (i = 0; account[i]; i++)
  			account[i] = tolower(account[i]);
  		
@@ -63,7 +63,7 @@ extern int main (int argc, char **argv)
 			return 1;
 			};
 		
-		//lowercase account name for usability
+		//lowercasing account name for usability
 		for (i = 0; account[i]; i++)
  			account[i] = tolower(account[i]);
  		
@@ -101,7 +101,7 @@ extern int main (int argc, char **argv)
     	};
 	
 	//notify user and pause for 15 seconds
-	printf("\nPaste it!\n");
+	printf("\nIn clipboard!\n");
 	sleep(15);
 	
 	//clear a clipboard
