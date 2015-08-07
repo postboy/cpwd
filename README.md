@@ -1,4 +1,4 @@
-## cpwd 1.2 - tiny and handy password manager.
+## cpwd 1.2 - tiny and handy password manager
 
 cpwd is simple, stateless password manager. You enter a master key and the name of an account (ex. "Twitter"), wait a few seconds, and cpwd generates a password for that account ready in your clipboard. You can reuse the same master key for all your accounts, and cpwd will generate a different password for every account. Every time you want to log in, just launch cpwd and enter the same master key and account name. Simple! Useful!
 
