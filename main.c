@@ -1,4 +1,4 @@
-//cpwd 1.2 - command-line password manager for your various accounts
+//cpwd 1.3 - command-line password manager for your various accounts
 //this is a port of npwd utility by Nadim Kobeissi (https://github.com/kaepora/npwd) to C
 
 //licence: GPL v3, author: Zuboff Ivan (anotherdiskmag on gooooooogle mail)
