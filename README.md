@@ -43,7 +43,7 @@ If you don't satisfied with cpwd speed, you can make it many times faster!
 
 ### See also
 1. [npwd] (https://github.com/kaepora/npwd) — imagine cpwd with very easy installation, but maybe not that fast work :)
-2. [PwdHash] (https://www.pwdhash.com) has a similar idea but uses hashing instead of key derivation function, thus less secure.
+2. [PwdHash] (https://www.pwdhash.com) has a similar idea but uses hashing instead of key derivation function, thus [dramatically less secure] (https://security.stackexchange.com/questions/52355/how-secure-is-the-pwdhash-algorithm-and-system).
 3. [Password manager without a password manager] (https://gist.github.com/jaseg/3334991) had a somewhat similar idea, used hashing instead of key derivation function and was broken.
 
 ### License
