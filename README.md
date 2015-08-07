@@ -30,10 +30,9 @@ Not tested, but probably supported: OpenBSD, Windows, Mac OS X.
 
 ### Installation
 1. `git clone https://github.com/postboy/cpwd.git` to download repository.
-2. Comment all code in platform-specific section that is unuseful for your system (that's easy).
-3. Build cpwd. On *nix systems with GCC you can do it via `./build.sh`.
-4. *nix only: add `alias cpwd='/path/to/./cpwd'` in your `.bashrc` file for adding a command "cpwd" to your shell. If you call it just "p" instead of "cpwd", you can launch it even faster!
-5. Linux/OpenBSD only: install `xclip` or `xsel` package for working with clipboard.
+2. Build cpwd. On *nix systems with GCC you can do it via `./build.sh`.
+3. *nix only: add `alias cpwd='/path/to/./cpwd'` in your `.bashrc` file for adding a command "cpwd" to your shell. Tip: if you call it just like "p" instead of "cpwd", you can launch it even faster!
+4. Linux/OpenBSD only: install `xclip` package for working with clipboard (you can use `xsel` package aswell, just edit the main.c for a bit).
 
 ### Does cpwd works too slow?
 If you don't satisfied with cpwd speed, you can make it many times faster!
