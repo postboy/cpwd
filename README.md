@@ -1,5 +1,4 @@
-# cpwd 1.2
-## Command-line password manager for your various accounts.
+## cpwd 1.2 - tiny and handy password manager.
 
 cpwd is simple, stateless password manager. You enter a master key and the name of an account (ex. "Twitter"), wait a few seconds, and cpwd generates a password for that account ready in your clipboard. You can reuse the same master key for all your accounts, and cpwd will generate a different password for every account. Every time you want to log in, just launch cpwd and enter the same master key and account name. Simple! Useful!
 
@@ -33,13 +32,13 @@ Not tested, but probably supported: OpenBSD, Windows, Mac OS X.
 1. `git clone https://github.com/postboy/cpwd.git` to download repository.
 2. Comment all code in platform-specific section that is unuseful for your system (that's easy).
 3. Build cpwd. On *nix systems with GCC you can do it via `./build.sh`.
-4. *nix only: add `alias cpwd='/path/to/./cpwd'` in your `.bashrc` file for adding a command "cpwd" to your shell.
+4. *nix only: add `alias cpwd='/path/to/./cpwd'` in your `.bashrc` file for adding a command "cpwd" to your shell. If you call it just "p" instead of "cpwd", you can launch it even faster!
 5. Linux/OpenBSD only: install `xclip` or `xsel` package for working with clipboard.
 
 ### Does cpwd works too slow?
 If you don't satisfied with cpwd speed, you can make it many times faster!
 
-1. Run `grep sse /proc/cpuinfo` to check does your processor supports SSE, and if so, compile against crypto_scrypt-sse.c instead of crypto_scrypt-ref.c.
+1. Check if your processor supports SSE (on *nix you just run `grep sse /proc/cpuinfo` to do it). If it does, compile against crypto_scrypt-sse.c instead of crypto_scrypt-ref.c (on GCC add a flag `-march=native` for successful compilation).
 2. Enable optimization in your compiler. If you use GCC, you can do it with flags `-march=native` (compile just for that processor) plus `-O1` or `-O2` or `-O3` (test them all and use the best for you).
 
 ### See also
