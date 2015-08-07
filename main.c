@@ -18,16 +18,16 @@ extern int main (int argc, char **argv)
 
 	//OS-specific part
 	#ifdef WIN32
-	char command_end[6] = "|clip\0";						//Windows
+		char command_end[6] = "|clip\0";						//Windows
 	#elif __MACH__
-	char command_end[8] = "|pbcopy\0";						//Mac OS X
+		char command_end[8] = "|pbcopy\0";						//Mac OS X
 	#else
-	//if it's not Windows nor OS X then assume it's Linux or OpenBSD
+		//if it's not Windows nor OS X then assume it's Linux or OpenBSD
 	
-	//choose only one string via commenting unnecessary line!
-	char command_end[28] = "|xclip -selection clipboard\0";	//Linux/OpenBSD with xclip package installed
-	//char command_end[26] = "|xsel --clipboard --input\0";	//Linux/OpenBSD with xsel package installed
-	
+		//choose only one string via commenting unnecessary line!
+		char command_end[28] = "|xclip -selection clipboard\0";	//Linux/OpenBSD with xclip package installed
+		//char command_end[26] = "|xsel --clipboard --input\0";	//Linux/OpenBSD with xsel package installed
+		
 	#endif
 	
 	char command_begin[6] = "echo \0", command[100] = {0}, account[1016], salt[1024] = {0},
