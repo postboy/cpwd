@@ -1,4 +1,4 @@
-//cpwd 1.3 - command-line password manager for your various accounts
+//cpwd 1.4 — tiny and handy password manager
 //this is a port of npwd utility by Nadim Kobeissi (https://github.com/kaepora/npwd) to C
 
 //licence: GPL v3, author: Zuboff Ivan (anotherdiskmag on gooooooogle mail)
@@ -36,25 +36,89 @@ extern int main (int argc, char **argv)
 	unsigned char hash[16];
 	int i;
 	
-	//if account name was defined as a command line arguement then get it from here
+	//if registration mode enabled and/or account name was defined as a command line arguement
 	if (argc > 1) {
 	
-		//copy at most 1016 bytes of argv[1] (to avoid buffer owerflow) to account
-		//maximum length of arguments is too big: http://www.in-ulm.de/~mascheck/various/argmax
-		memcpy(account, argv[1], strlen(argv[1]) < 1016 ? strlen(argv[1]) : 1016);
-		
-		//lowercasing account name for usability
-		for (i = 0; account[i]; i++)
- 			account[i] = tolower(account[i]);
+		//registration mode
+		if (strcmp("-r", argv[1]) == 0) {
+			
+			//registration mode, account name was defined as a command line arguement
+			if (argc > 2) {
+			
+				//copy at most 1016 bytes of argv[2] (to avoid buffer owerflow) to account
+				//maximum length of arguments is too big: http://www.in-ulm.de/~mascheck/various/argmax
+				memcpy(account, argv[2], strlen(argv[2]) < 1016 ? strlen(argv[2]) : 1016);
+	
+				//lowercasing account name for usability
+				for (i = 0; account[i]; i++)
+	 				account[i] = tolower(account[i]);
  		
- 		//salt: "npwd"+lowercased account+"npwd"
-		strncat(salt, n, 4);
-		strncat(salt, account, strlen(account));
-		strncat(salt, n, 4);
+	 			//salt: "npwd"+lowercased account+"npwd"
+				strncat(salt, n, 4);
+				strncat(salt, account, strlen(account));
+				strncat(salt, n, 4);
+			
+				}
+			
+			//registration mode, ask a user to enter account name
+			else {
+			
+				printf("account: ");
+				if (fflush(stdin)) {
+					printf("fflush() error\n");
+					return 1;
+					}
+				if (fgets((char *)account, 1016, stdin) == NULL) {
+					printf("fgets() error\n");
+					return 1;
+					};
 		
+				//lowercasing account name for usability
+				for (i = 0; account[i]; i++)
+ 					account[i] = tolower(account[i]);
+ 		
+ 				//salt: "npwd"+lowercased account without newline+"npwd"
+				strncat(salt, n, 4);
+				strncat(salt, account, strlen(account)-1);
+				strncat(salt, n, 4);
+				
+				}
+			
+			//get master key twice because it's registration mode
+		 	if (tarsnap_readpass(&key, "key", "repeat", 1)) {
+				printf("tarsnap_readpass() error\n");
+				return 1;
+				}
+			
+			}
+		
+		//normal mode, account name was defined as a command line arguement
+		else {
+		
+			//copy at most 1016 bytes of argv[1] (to avoid buffer owerflow) to account
+			//maximum length of arguments is too big: http://www.in-ulm.de/~mascheck/various/argmax
+			memcpy(account, argv[1], strlen(argv[1]) < 1016 ? strlen(argv[1]) : 1016);
+	
+			//lowercasing account name for usability
+			for (i = 0; account[i]; i++)
+	 			account[i] = tolower(account[i]);
+ 		
+	 		//salt: "npwd"+lowercased account+"npwd"
+			strncat(salt, n, 4);
+			strncat(salt, account, strlen(account));
+			strncat(salt, n, 4);
+		
+			//get master key once
+		 	if (tarsnap_readpass(&key, "key", NULL, 1)) {
+				printf("tarsnap_readpass() error\n");
+				return 1;
+				}
+		
+			}
+
 		}
 
-	//else ask user to enter it it
+	//no additional parameters: normal mode, ask a user to enter account name
 	else {
 	
 		printf("account: ");
@@ -75,13 +139,13 @@ extern int main (int argc, char **argv)
 		strncat(salt, n, 4);
 		strncat(salt, account, strlen(account)-1);
 		strncat(salt, n, 4);
+		
+		//get master key once
+	 	if (tarsnap_readpass(&key, "key", NULL, 1)) {
+			printf("tarsnap_readpass() error\n");
+			return 1;
+			}
 	
-		}
-
- 	//get master key
- 	if (tarsnap_readpass(&key, "key", NULL, 1)) {
-		printf("tarsnap_readpass() error\n");
-		return 1;
 		}
 
 	//launch key derivation function to get hash of master key and account name
