@@ -33,7 +33,7 @@ cpwd is a C port of [npwd] (https://github.com/kaepora/npwd) by [Nadim Kobeissi]
 
 ### Tips on cpwd launching speed-up
 1. On *nix: add a lines `alias p='/path/to/./cpwd'` and `alias r='/path/to/./cpwd -r'` in your `.bashrc` file for adding two commands to your shell: `p` that launches cpwd in normal mode and add `r` that launches cpwd in registration mode.
-2. On Windows: for faster launching cpwd via `p` and `r` commands in cmd you can create two batch scripts in some directory that's shown as result of `PATH` command in cmd: `p.bat` containing a line `@echo off && 'C:\path\to\cpwd.exe'` and `r.bat` containing a line `@echo off && 'C:\path\to\cpwd.exe -r'`.
+2. On Windows: for faster launching cpwd via `p` and `r` commands in cmd you can create two batch scripts in some directory that's shown as result of `path` command in cmd: `p.bat` containing a line `@echo off && call "C:\path\to\cpwd.exe"` and `r.bat` containing a line `@echo off && call "C:\path\to\cpwd.exe -r"`.
 
 ### Tips on cpwd computing speed-up
 1. Check if your processor supports SSE (on *nix just run `grep sse /proc/cpuinfo` to do it). If it does, compile against crypto_scrypt-sse.c instead of crypto_scrypt-nosse.c (and if you use GCC, add a flag `-march=native`).
