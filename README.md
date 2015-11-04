@@ -23,8 +23,8 @@ cpwd is a C port of [npwd] (https://github.com/kaepora/npwd) by [Nadim Kobeissi]
 
 ### Platforms
 * Linux (tested)
-* OpenBSD, Windows, Mac OS X (not tested, but probably supported)
-* other OSes (you may need to do some porting work)
+* Mac OS X, OpenBSD and other UNIXes (not tested, but probably supported)
+* Windows and other OSes (you may need to do some porting work)
 
 ### Installation
 1. `git clone https://github.com/postboy/cpwd.git` to download repository.
@@ -42,6 +42,7 @@ cpwd is a C port of [npwd] (https://github.com/kaepora/npwd) by [Nadim Kobeissi]
 ### See also
 1. [My post in Russian] (https://medium.com/@posthedgehog/%D0%BA%D0%B0%D0%BA-%D1%8F-%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D0%BB-%D1%81%D0%B5%D0%B1%D0%B5-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80-%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D0%B5%D0%B9-4b4404352bd0) about this project.
 2. [npwd] (https://github.com/kaepora/npwd) — imagine cpwd with very easy installation, but maybe not that fast work :)
+3. [jkalbhenn's password manager] (https://github.com/jkalbhenn/scrypt) is essentialy the same project, but started two years before me.
 
 ### Related work
 1. [Password Multiplier] (https://www.cs.princeton.edu/~jhalderm/projects/password) using iterated hashing, 2005.
@@ -51,7 +52,7 @@ cpwd is a C port of [npwd] (https://github.com/kaepora/npwd) by [Nadim Kobeissi]
 5. [Password manager without a password manager] (https://gist.github.com/jaseg/3334991) that [was broken] (https://news.ycombinator.com/item?id=4374888), 2012.
 
 ### License
-cpwd itself is licensed under [GPL v3] (https://www.gnu.org/licenses/gpl-3.0.en.html), but uses parts of [scrypt 1.1.6] (https://www.tarsnap.com/scrypt.html) licensed under [BSD 2-Clause] (http://opensource.org/licenses/bsd-license.php) and [GCC Poison] (http://blog.leafsr.com/2013/12/02/gcc-poison) which is public domain.
+cpwd itself is licensed under [GPL v3] (https://www.gnu.org/licenses/gpl-3.0.en.html), but uses parts of [scrypt 1.1.6] (https://www.tarsnap.com/scrypt.html) licensed under [BSD 2-Clause] (http://opensource.org/licenses/bsd-license.php) and [GCC Poison] (http://blog.leafsr.com/2013/12/02/gcc-poison) which is public domain. Commands for working with clipboard are taken from [node-copy-paste] (https://github.com/xavi-/node-copy-paste) 1.1.3.
 
 ### Author
 Zuboff Ivan // anotherdiskmag on gooooooogle mail
