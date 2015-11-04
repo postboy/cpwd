@@ -52,7 +52,7 @@ cpwd is a C port of [npwd] (https://github.com/kaepora/npwd) by [Nadim Kobeissi]
 5. [Password manager without a password manager] (https://gist.github.com/jaseg/3334991) that [was broken] (https://news.ycombinator.com/item?id=4374888), 2012.
 
 ### License
-cpwd itself is licensed under [GPL v3] (https://www.gnu.org/licenses/gpl-3.0.en.html), but uses parts of [scrypt 1.1.6] (https://www.tarsnap.com/scrypt.html) licensed under [BSD 2-Clause] (http://opensource.org/licenses/bsd-license.php) and [GCC Poison] (http://blog.leafsr.com/2013/12/02/gcc-poison) which is public domain. Commands for working with clipboard are taken from [node-copy-paste] (https://github.com/xavi-/node-copy-paste) 1.1.3.
+cpwd itself is licensed under [GPL v3] (https://www.gnu.org/licenses/gpl-3.0.en.html), but uses parts of [scrypt 1.1.6] (https://www.tarsnap.com/scrypt.html) licensed under [BSD 2-Clause] (http://opensource.org/licenses/bsd-license.php) and [GCC Poison] (http://blog.leafsr.com/2013/12/02/gcc-poison) which is public domain. Commands for working with clipboard are taken from [node-copy-paste] (https://github.com/xavi-/node-copy-paste).
 
 ### Author
 Zuboff Ivan // anotherdiskmag on gooooooogle mail
