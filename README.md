@@ -17,7 +17,7 @@ cpwd is a C port of [npwd] (https://github.com/kaepora/npwd) by [Nadim Kobeissi]
 
 ### Notes
 1. **Weak master key ruins everything**. Your master key should have at least 8 characters, contain lowercase and uppercase letters, numbers and special symbols.
-2. cpwd is compatibile with latest npwd 1.0.6 and offers the same functional plus some new. cpwd allows you to get maximum speed of work while npwd is much easier to install. cpwd is written in C while npwd is written in JavaScript, thus depends on `Node.JS` and `npm`.
+2. cpwd is compatible with latest npwd 1.0.6 and offers the same functional plus some new. cpwd allows you to get maximum speed of work while npwd is much easier to install. cpwd is written in C while npwd is written in JavaScript, thus depends on `Node.JS` and `npm`.
 3. Key derivation is done with [scrypt] (https://www.tarsnap.com/scrypt.html), account name acts as salt. Parameters: N = 2<sup>17</sup> = 131072, r = 8, p = 1, L = 16. Generated passwords contain 32 symbols from 0123456789abcdef set.
 4. Account names are lowercased automatically for usability. "GitHub" == "github".
 
@@ -32,17 +32,18 @@ cpwd is a C port of [npwd] (https://github.com/kaepora/npwd) by [Nadim Kobeissi]
 3. Linux/OpenBSD only: install `xclip` package for working with clipboard (you can use `xsel` package aswell, just edit the main.c for a bit).
 
 ### Tips on cpwd launching speed-up
-1. On *nix: add a lines `alias p='/path/to/./cpwd'` and `alias r='/path/to/./cpwd -r'` in your `.bashrc` file for adding two commands to your shell: `p` that launches cpwd in normal mode and add `r` that launches cpwd in registration mode.
+1. On *nix: add a lines `alias p='/path/to/./cpwd'` and `alias r='/path/to/./cpwd -r'` in your `.bashrc` file for adding two commands to your shell: `p` that launches cpwd in normal mode and `r` that launches cpwd in registration mode.
 2. On Windows: for faster launching cpwd via `p` and `r` commands in cmd you can create two batch scripts in some directory that's shown as result of `path` command in cmd: `p.bat` containing a line `@echo off && call "C:\path\to\cpwd.exe"` and `r.bat` containing a line `@echo off && call "C:\path\to\cpwd.exe -r"`.
 
 ### Tips on cpwd computing speed-up
 1. Check if your processor supports SSE (on *nix just run `grep sse /proc/cpuinfo` to do it). If it does, compile against crypto_scrypt-sse.c instead of crypto_scrypt-nosse.c (and if you use GCC, add a flag `-march=native`).
-2. Enable optimization in your compiler. If you use GCC, you can do it with flags `-march=native` (compile just for current processor) plus `-O1` or `-O2` or `-O3` (test them all and use the best for you).
+2. Enable optimization in your compiler. If you use GCC, you can do it with flags `-march=native` (compile just for current processor) plus `-O1` (recommended) or `-O2` or `-O3` (not recommended). Test them all and use the best for you.
 
 ### See also
-1. [My post in Russian] (https://medium.com/@posthedgehog/%D0%BA%D0%B0%D0%BA-%D1%8F-%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D0%BB-%D1%81%D0%B5%D0%B1%D0%B5-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80-%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D0%B5%D0%B9-4b4404352bd0) about this project.
-2. [npwd] (https://github.com/kaepora/npwd) — imagine cpwd with very easy installation, but maybe not that fast work :)
-3. [jkalbhenn's password manager] (https://github.com/jkalbhenn/scrypt) is essentialy the same project, but started two years before me.
+1. [cpwd version 2] (https://github.com/postboy/cpwd2).
+2. [My post in Russian] (https://medium.com/@posthedgehog/%D0%BA%D0%B0%D0%BA-%D1%8F-%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D0%BB-%D1%81%D0%B5%D0%B1%D0%B5-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80-%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D0%B5%D0%B9-4b4404352bd0) about this project.
+3. [npwd] (https://github.com/kaepora/npwd) — imagine cpwd with very easy installation, but maybe not that fast work :)
+4. [jkalbhenn's password manager] (https://github.com/jkalbhenn/scrypt) is essentialy the same project, but started two years before me.
 
 ### Related work
 1. [Password Multiplier] (https://www.cs.princeton.edu/~jhalderm/projects/password) using iterated hashing, 2005.
