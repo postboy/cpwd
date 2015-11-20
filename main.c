@@ -159,7 +159,7 @@ extern int main (int argc, char **argv)
    
 	//clear a buffer for a master key and for salt as soon as we can
 	free(key);
-	bzero(salt, 1024);
+	memset(salt, 0, sizeof(salt));
 
 	//first let's take an unencoded hash to clipboard!
 	//to do that, compose and execute a command "command_begin"+unencoded hash+"command_end"
@@ -169,7 +169,9 @@ extern int main (int argc, char **argv)
 		snprintf(password_letters, 3, "%02x", hash[i]);
 		strncat(command, password_letters, 3);
 		}
-	bzero(hash, 16);	//clear a buffer for a hash as soon as we can
+	//clear a buffer with encoded password as soon as we can
+	memset(hash, 0, sizeof(hash));
+	memset(password_letters, 0, sizeof(password_letters));
 	strncat(command, command_end, strlen(command_end));
 	
 	if (system(command)) {
@@ -177,8 +179,8 @@ extern int main (int argc, char **argv)
 		return 1;
    		};
     
-    //clear a buffer with a password as soon as we can
-	bzero(command, 100);
+    //clear a buffer with encoded password as soon as we can
+	memset(command, 0, sizeof(command));
 	
 	//notify user and pause for 15 seconds
 	printf("\nIn clipboard!\n");
