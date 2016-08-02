@@ -44,6 +44,7 @@ cpwd is a C port of [npwd] (https://github.com/kaepora/npwd) by [Nadim Kobeissi]
 2. My posts in Russian about [first] (https://medium.com/@posthedgehog/%D0%BA%D0%B0%D0%BA-%D1%8F-%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D0%BB-%D1%81%D0%B5%D0%B1%D0%B5-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80-%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D0%B5%D0%B9-4b4404352bd0) and [second] (https://medium.com/@posthedgehog/what-do-you-represent-de947f7c008a) versions of this project.
 3. [npwd] (https://github.com/kaepora/npwd) — imagine cpwd with very easy installation, but maybe not that fast work :)
 4. [jkalbhenn's password manager] (https://github.com/jkalbhenn/scrypt) is essentialy the same project, but started more than two years before this.
+5. [kyle] (https://github.com/esurharun/kyle) is a similar project, but started about 1.5 years before this.
 
 ### Related work
 1. [Password Multiplier] (https://www.cs.princeton.edu/~jhalderm/projects/password) using iterated hashing, 2005.
