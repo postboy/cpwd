@@ -48,7 +48,7 @@ cpwd is a C port of [npwd](https://github.com/kaepora/npwd) by [Nadim Kobeissi](
 
 ### Related work
 1. [Password Multiplier](https://www.cs.princeton.edu/~jhalderm/projects/password) using iterated hashing, 2005.
-2. [PwdHash](https://www.pwdhash.com) using hashing and is [much less secure] (https://security.stackexchange.com/questions/52355/how-secure-is-the-pwdhash-algorithm-and-system), 2005.
+2. [PwdHash](https://www.pwdhash.com) using hashing and is [much less secure](https://security.stackexchange.com/questions/52355/how-secure-is-the-pwdhash-algorithm-and-system), 2005.
 3. [Usability study and critique of PwdHash and Password Multiplier](http://people.scs.carleton.ca/~paulv/papers/usenix06.pdf).
 4. [Janus Personalized Web Anonymizer](http://theory.stanford.edu/~matias/papers/fc97.pdf), 1997, and it's successor, [Lucent Personalized Web Assistant](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.145.7899&rep=rep1&type=pdf), 1998, both using hashing, are early examples of such password manager.
 5. [Password manager without a password manager](https://gist.github.com/jaseg/3334991) that [was broken](https://news.ycombinator.com/item?id=4374888), 2012.
